@@ -1,0 +1,1 @@
+"""Netplan test module."""
