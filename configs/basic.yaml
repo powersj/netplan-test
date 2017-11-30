@@ -1,0 +1,10 @@
+# Basic example provided by Netplan documentation
+#
+network:
+    version: 2
+    renderer: networkd
+    ethernets:
+        net0:
+            dhcp4: true
+            match:
+                macaddress: 52:54:00:12:34:04

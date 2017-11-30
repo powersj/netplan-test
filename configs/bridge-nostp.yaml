@@ -1,0 +1,21 @@
+# Bridging with STP
+#
+# https://help.ubuntu.com/community/NetworkConnectionBridge
+#
+network:
+    renderer: networkd
+    ethernets:
+        net0:
+            match:
+                macaddress: 52:54:00:12:34:04
+        net1:
+            match:
+                macaddress: 52:54:00:12:34:05
+    bridges:
+        br0:
+            dhcp4: yes
+            interfaces:
+                - net0
+                - net1
+            parameters:
+                stp: false

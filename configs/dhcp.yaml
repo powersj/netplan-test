@@ -1,0 +1,29 @@
+# DHCP IPv4 and IPv6
+#
+# https://wiki.ubuntu.com/ModularEtcNetworkInterfacesSpec
+# https://wiki.ubuntu.com/IPv6
+#
+network:
+    version: 2
+    renderer: networkd
+    ethernets:
+        net0:
+            dhcp4: true
+            match:
+                macaddress: 52:54:00:12:34:04
+        net1:
+            dhcp6: true
+            match:
+                macaddress: 52:54:00:12:34:05
+        net2:
+            dhcp4: true
+            dhcp6: true
+            match:
+                macaddress: 52:54:00:12:34:06
+        net3:
+            addresses:
+                - 10.0.1.1/24
+            dhcp4: no
+            match:
+                macaddress: 52:54:00:12:34:07
+

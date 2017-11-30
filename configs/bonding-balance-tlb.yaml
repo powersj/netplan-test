@@ -1,0 +1,27 @@
+# Bonding Mode 5: balance-tlb
+#
+# This mode is called Adaptive transmit load balancing. The outgoing traffic
+# is distributed based on the current load on each slave and the incoming
+# traffic is received by the current slave. If the incoming traffic fails,
+# the failed receiving slave is replaced by the MAC address of another slave.
+# This mode does not require any special switch support.
+#
+# https://help.ubuntu.com/community/UbuntuBonding#Descriptions_of_bonding_modes
+#
+network:
+    renderer: networkd
+    ethernets:
+        net0:
+            match:
+                macaddress: 52:54:00:12:34:04
+        net1:
+            match:
+                macaddress: 52:54:00:12:34:05
+    bonds:
+        bond0:
+            dhcp4: yes
+            interfaces:
+                - net0
+                - net1
+            parameters:
+                mode: balance-tlb

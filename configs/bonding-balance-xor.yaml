@@ -1,0 +1,25 @@
+# Bonding Mode 2: balance-xor
+#
+# This mode sets an XOR (exclusive or) mode that is the source MAC address is
+# XOR’d with destination MAC address for providing load balancing and fault
+# tolerance. Each destination MAC address the same slave is selected.
+#
+# https://help.ubuntu.com/community/UbuntuBonding#Descriptions_of_bonding_modes
+#
+network:
+    renderer: networkd
+    ethernets:
+        net0:
+            match:
+                macaddress: 52:54:00:12:34:04
+        net1:
+            match:
+                macaddress: 52:54:00:12:34:05
+    bonds:
+        bond0:
+            dhcp4: yes
+            interfaces:
+                - net0
+                - net1
+            parameters:
+                mode: balance-xor

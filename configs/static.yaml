@@ -1,0 +1,39 @@
+# Static IPv4 and IPv6
+#
+# https://wiki.ubuntu.com/ModularEtcNetworkInterfacesSpec
+# https://wiki.ubuntu.com/IPv6
+#
+network:
+    version: 2
+    renderer: networkd
+    ethernets:
+        net0:
+            addresses:
+                - 10.0.0.10/24
+            gateway4: 10.0.0.1
+            match:
+                macaddress: 52:54:00:12:34:04
+            nameservers:
+                addresses:
+                    - 8.8.8.8
+                    - 8.8.4.4
+                search:
+                    - home
+        net1:
+            addresses:
+                - fe80::a00:10a/120
+            gateway6: fe80::a00:101
+            match:
+                macaddress: 52:54:00:12:34:05
+        net2:
+            addresses:
+                - 10.0.2.10/24
+                - fe80::a01:20a/120
+            match:
+                macaddress: 52:54:00:12:34:06
+        net3:
+            addresses:
+                - 10.0.3.10/24
+            match:
+                macaddress: 52:54:00:12:34:07
+

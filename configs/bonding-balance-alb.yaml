@@ -1,0 +1,24 @@
+# Bonding Mode 6: balance-alb
+#
+# This mode is called adaptive load balancing. This mode does not require any
+# special switch support.
+#
+# https://help.ubuntu.com/community/UbuntuBonding#Descriptions_of_bonding_modes
+#
+network:
+    renderer: networkd
+    ethernets:
+        net0:
+            match:
+                macaddress: 52:54:00:12:34:04
+        net1:
+            match:
+                macaddress: 52:54:00:12:34:05
+    bonds:
+        bond0:
+            dhcp4: yes
+            interfaces:
+                - net0
+                - net1
+            parameters:
+                mode: balance-alb

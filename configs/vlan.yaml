@@ -1,0 +1,37 @@
+# vlan IPv4 and IPv6
+#
+# https://wiki.ubuntu.com/vlan
+#
+network:
+    version: 2
+    renderer: networkd
+    ethernets:
+        net0:
+            dhcp4: true
+            match:
+                macaddress: 52:54:00:12:34:04
+        net1:
+            match:
+                macaddress: 52:54:00:12:34:05
+        net2:
+            match:
+                macaddress: 52:54:00:12:34:06
+        net3:
+            match:
+                macaddress: 52:54:00:12:34:07
+    vlans:
+        vdev:
+            id: 101
+            link: net1
+            addresses:
+                - 10.0.1.10/24
+        vtest:
+            id: 102
+            link: net2
+            addresses:
+                - 10.0.2.10/24
+        vprod:
+            id: 103
+            link: net3
+            addresses:
+                - 10.0.3.10/24

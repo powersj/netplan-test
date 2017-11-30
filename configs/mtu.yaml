@@ -1,0 +1,33 @@
+# MTU
+#
+# https://wiki.ubuntu.com/ModularEtcNetworkInterfacesSpec
+# https://wiki.ubuntu.com/IPv6
+#
+network:
+    version: 2
+    renderer: networkd
+    ethernets:
+        net0:
+            addresses:
+                - 10.0.0.10/24
+            match:
+                macaddress: 52:54:00:12:34:04
+            mtu: 9000
+        net1:
+            addresses:
+                - 10.0.1.10/24
+            match:
+                macaddress: 52:54:00:12:34:05
+            mtu: 1480
+        net2:
+            addresses:
+                - 10.0.2.10/24
+            match:
+                macaddress: 52:54:00:12:34:06
+            mtu: 9001
+        net3:
+            addresses:
+                - 10.0.3.10/24
+            match:
+                macaddress: 52:54:00:12:34:07
+            mtu: 1501

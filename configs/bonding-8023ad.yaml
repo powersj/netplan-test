@@ -1,0 +1,27 @@
+# Bonding Mode 4: 802.3ad
+#
+# This mode is known as a Dynamic Link Aggregation mode that has it created
+# aggregation groups having same speed. It requires a switch that supports
+# IEEE 802.3ad dynamic link. The slave selection for outgoing traffic is done
+# based on a transmit hashing method. This may be changed from the XOR method
+# via the xmit_hash_policy option.
+#
+# https://help.ubuntu.com/community/UbuntuBonding#Descriptions_of_bonding_modes
+#
+network:
+    renderer: networkd
+    ethernets:
+        net0:
+            match:
+                macaddress: 52:54:00:12:34:04
+        net1:
+            match:
+                macaddress: 52:54:00:12:34:05
+    bonds:
+        bond0:
+            dhcp4: yes
+            interfaces:
+                - net0
+                - net1
+            parameters:
+                mode: 802.3ad
