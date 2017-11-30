@@ -40,4 +40,4 @@ def verify(results_dir):
 
     @param results_dir: optional, path to store results
     """
-    print('verifing: %s' % (results_dir))
+    pass

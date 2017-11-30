@@ -1,7 +1,0 @@
-# Most simple DHCP example
-network:
-    version: 2
-    renderer: networkd
-    ethernets:
-        ens4:
-            dhcp4: true

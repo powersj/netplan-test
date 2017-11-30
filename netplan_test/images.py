@@ -124,9 +124,8 @@ class TestImage(object):
         ]
 
         base_cmd = [
-            'qemu-system-x86_64', '-enable-kvm',
+            'qemu-system-x86_64', '-enable-kvm', '-smp', '2', '-m', '2G',
             '-vnc', 'none', '-nographic', '-serial', 'file:%s' % log_console,
-            '-m', '2G', '-smp', '2'
         ]
 
         self.log.debug('launching image')

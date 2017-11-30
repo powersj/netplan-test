@@ -36,8 +36,8 @@ def find_tests(tests=None):
     if not tests:
         tests = glob.glob('configs/*.yaml')
 
-    LOG.info('running %s', (tests))
-    return tests
+    LOG.info('running %s tests\n%s', len(tests), tests)
+    return sorted(tests)
 
 
 def latest_cloud_image(release):
