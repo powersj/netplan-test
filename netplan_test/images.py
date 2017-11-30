@@ -50,7 +50,7 @@ class TestImage(object):
         @param test_yaml_path: path to test yaml file
         """
         self.log = logging.getLogger('netplan_test')
-        self.test_name = os.path.basename(test_yaml_path).strip('.yaml')
+        self.test_name = os.path.basename(test_yaml_path).replace('.yaml', '')
         self.directory = os.path.join(base_image.directory, self.test_name)
         self.path = os.path.join(self.directory, 'image.qcow')
         self.path_seed = None
