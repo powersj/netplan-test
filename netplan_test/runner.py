@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Central runner for framework."""
 import logging
+import os
 import time
 
 from .images import BaseImage, TestImage
@@ -22,6 +23,10 @@ def collect(release, image, tests, results_dir):
 
     tests = find_tests(tests)
     for test_yaml_path in tests:
+        if not os.path.isfile(test_yaml_path):
+            log.error('%s is not a valid path to a testcase' % test_yaml_path)
+            continue
+
         start_time = time.time()
         test_image = TestImage(base_image, test_yaml_path)
         test_image.launch()

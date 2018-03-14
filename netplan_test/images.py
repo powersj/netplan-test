@@ -137,6 +137,7 @@ class TestImage(object):
         try:
             process.communicate(timeout=300)
         except subprocess.TimeoutExpired:
+            self.log.debug('timeout reached, killing vm')
             os.killpg(process.pid, signal.SIGINT)
             process.communicate()
 
