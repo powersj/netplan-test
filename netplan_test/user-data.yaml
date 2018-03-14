@@ -11,3 +11,4 @@ runcmd:
   - [sh, -c, 'bridge link show > /var/tmp/bridge_link']
   - [sh, -c, 'systemd-resolve --status > /var/tmp/systemd_resolve']
   - [sh, -c, 'networkctl status > /var/tmp/networkctl_status']
+  - [sh, -c, 'cat /run/NetworkManager/system-connections > /var/tmp/nm_sys_connections']
